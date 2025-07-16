@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("api/recipe/search", async (req, res) => {
+app.get("/api/recipe/search", async (req, res) => {
   res.json({ message: "success" });
 });
 
