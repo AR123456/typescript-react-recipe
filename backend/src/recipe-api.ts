@@ -8,4 +8,10 @@ const searchRecipes = (searchTerm: string, page: number) => {
   //    url of recipe endpoint
   const url = new URL("https://api.spoonacular.com/recipes/complexSearch");
   // query parameters
+  const queryParams = {
+    apiKey: apiKey,
+    query: searchTerm,
+    number: "10",
+    offset: (page * 10).toString(),
+  };
 };
