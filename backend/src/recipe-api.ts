@@ -6,4 +6,6 @@ const searchRecipes = (searchTerm: string, page: number) => {
     throw new Error("API Key not found ");
   }
   //    url of recipe endpoint
+  const url = new URL("https://api.spoonacular.com/recipes/complexSearch");
+  // query parameters
 };
