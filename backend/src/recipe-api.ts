@@ -1,7 +1,7 @@
 // logic to search recipe api
 const apiKey = process.env.API_KEY;
 
-const searchRecipes = (searchTerm: string, page: number) => {
+const searchRecipes = async (searchTerm: string, page: number) => {
   if (!apiKey) {
     throw new Error("API Key not found ");
   }
@@ -17,5 +17,6 @@ const searchRecipes = (searchTerm: string, page: number) => {
   url.search = new URLSearchParams(queryParams).toString();
 
   try {
+    const searchResponse = await fetch(url);
   } catch (error) {}
 };
