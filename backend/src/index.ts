@@ -9,6 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+import * as RecipeAPI from "./recipe-api";
 // routes
 app.get("/api/recipe/search", async (req: Request, res: Response) => {
   res.json({ message: "success" });

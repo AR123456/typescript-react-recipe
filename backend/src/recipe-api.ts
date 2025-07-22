@@ -1,7 +1,7 @@
-// logic to search recipe api
+// logic to search recipe api - call this function from the get in
 const apiKey = process.env.API_KEY;
 
-const searchRecipes = async (searchTerm: string, page: number) => {
+export const searchRecipes = async (searchTerm: string, page: number) => {
   if (!apiKey) {
     throw new Error("API Key not found ");
   }
