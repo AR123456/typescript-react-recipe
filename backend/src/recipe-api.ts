@@ -18,5 +18,8 @@ const searchRecipes = async (searchTerm: string, page: number) => {
 
   try {
     const searchResponse = await fetch(url);
+    // need data from body of http response
+    const resultsJson = await searchResponse.json();
+    return resultsJson;
   } catch (error) {}
 };
