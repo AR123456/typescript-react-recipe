@@ -15,4 +15,7 @@ const searchRecipes = (searchTerm: string, page: number) => {
     offset: (page * 10).toString(),
   };
   url.search = new URLSearchParams(queryParams).toString();
+
+  try {
+  } catch (error) {}
 };
