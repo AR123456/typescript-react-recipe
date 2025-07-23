@@ -1,7 +1,11 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
+//  to support multiple API calls to different consts
+import * as RecipeAPI from "./recipe-api.ts";
+
 import { PrismaClient } from "@prisma/client";
+
 const prisma = new PrismaClient();
 
 const PORT = process.env.PORT || 5000;
@@ -9,8 +13,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-//  to support multiple API calls to different consts
-import * as RecipeAPI from "./recipe-api";
+
 // routes
 // for testing set up
 // app.get("/api/recipe/search", async (req: Request, res: Response) => {
