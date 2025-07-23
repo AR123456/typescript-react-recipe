@@ -1,5 +1,7 @@
 // logic to search recipe api - call this function from the get in
 const apiKey = process.env.API_KEY;
+let searchTerm = "burgers";
+let page = 1;
 
 export const searchRecipes = async (searchTerm: string, page: number) => {
   if (!apiKey) {

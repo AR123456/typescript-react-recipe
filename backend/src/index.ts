@@ -9,6 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+//  to support multiple API calls to different consts
 import * as RecipeAPI from "./recipe-api";
 // routes
 // for testing set up
@@ -18,6 +19,7 @@ import * as RecipeAPI from "./recipe-api";
 app.get("/api/recipe/search", async (req: Request, res: Response) => {
   const searchTerm = req.query.searchTerm as string;
   const page = parseInt(req.query.page as string);
+  // GET   http://localhost:5000/api/recipe/search?searchTerm=burgers&page=1
   const results = await RecipeAPI.searchRecipes(searchTerm, page);
   return res.json(results);
 });
