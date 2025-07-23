@@ -11,6 +11,10 @@ app.use(express.json());
 app.use(cors());
 import * as RecipeAPI from "./recipe-api";
 // routes
+// for testing set up
+// app.get("/api/recipe/search", async (req: Request, res: Response) => {
+//   res.json({ message: "success" });
+// });
 app.get("/api/recipe/search", async (req: Request, res: Response) => {
   res.json({ message: "success" });
 });
@@ -20,5 +24,5 @@ app.get("/api/recipes/favorite", async (req, res) => {});
 
 app.delete("/api/recipes/favorite", async (req, res) => {});
 app.listen(PORT, () => {
-  console.log(`Server started on https://localhost:${PORT}`);
+  console.log(`Server started on http://localhost:${PORT}`);
 });
