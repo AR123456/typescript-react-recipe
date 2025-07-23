@@ -16,7 +16,10 @@ import * as RecipeAPI from "./recipe-api";
 //   res.json({ message: "success" });
 // });
 app.get("/api/recipe/search", async (req: Request, res: Response) => {
-  res.json({ message: "success" });
+  const searchTerm = req.query.searchTerm as string;
+  const page = parseInt(req.query.page as string);
+  const results = await RecipeAPI.searchRecipes(searchTerm, page);
+  return res.json(results);
 });
 app.get("/api/recipes/:recipeId/summary", async (req, res) => {});
 app.post("/api/recipes/favorite", async (req, res) => {});
