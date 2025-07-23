@@ -16,7 +16,8 @@ import * as RecipeAPI from "./recipe-api";
 // app.get("/api/recipe/search", async (req: Request, res: Response) => {
 //   res.json({ message: "success" });
 // });
-app.get("/api/recipe/search", async (req: Request, res: Response) => {
+// app.get("/api/recipe/search", async (req: Request, res: Response) => {
+app.get("/api/recipe/search", async (req, res) => {
   const searchTerm = req.query.searchTerm as string;
   const page = parseInt(req.query.page as string);
   // GET   http://localhost:5000/api/recipe/search?searchTerm=burgers&page=1
