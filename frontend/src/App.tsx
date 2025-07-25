@@ -20,17 +20,7 @@ const App = () => {
     }
   };
 
-  return (
-    <div>
-      {/* typescript needs to know why the type is of image and title, go to types.ts */}
-      {recipes.map((recipe) => (
-        <div>
-          recipe image location:{recipe.image}
-          recipe title: {recipe.title}
-        </div>
-      ))}
-    </div>
-  );
+  return <div>Hello from recipe app! </div>;
 };
 
 export default App;
