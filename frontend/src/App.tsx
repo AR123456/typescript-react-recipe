@@ -3,10 +3,12 @@
 import "./App.css";
 import { useState } from "react";
 import * as api from "./api";
+// get recipe from the ts types file
+import { Recipe } from "./types";
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("burgers");
   // api returns an array of results -
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   // event handler for front end to back will be on submit button
   const handleSearchSubmit = async () => {
@@ -22,6 +24,9 @@ const App = () => {
 
   return (
     <div>
+      <form onSubmit={() => handleSearchSubmit()}>
+        <button type="submit">Submit</button>
+      </form>
       {/* typescript needs to know why the type is of image and title, go to types.ts */}
       {recipes.map((recipe) => (
         <div>
