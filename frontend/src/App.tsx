@@ -17,7 +17,7 @@ const App = () => {
       // passing in what back end expects a search term and page
       const recipes = await api.searchRecipes(searchTerm, 1);
       // set what comes back- triggers component to rerender
-      setRecipes(recipes);
+      setRecipes(recipes.results);
     } catch (error) {
       console.log(error);
     }
