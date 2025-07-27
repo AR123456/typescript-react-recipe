@@ -1,7 +1,7 @@
 // dont need to import React - but do its componetns
 
 import "./App.css";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import * as api from "./api";
 // get recipe from the ts types file
 import { Recipe } from "./types";
@@ -11,7 +11,8 @@ const App = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   // event handler for front end to back will be on submit button
-  const handleSearchSubmit = async () => {
+  const handleSearchSubmit = async (event: FormEvent) => {
+    event.preventDefault();
     try {
       // passing in what back end expects a search term and page
       const recipes = await api.searchRecipes(searchTerm, 1);
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <div>
-      <form onSubmit={() => handleSearchSubmit()}>
+      <form onSubmit={(event) => handleSearchSubmit(event)}>
         <button type="submit">Submit</button>
       </form>
       {/* typescript needs to know why the type is of image and title, go to types.ts */}
