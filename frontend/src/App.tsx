@@ -5,6 +5,7 @@ import { useState, type FormEvent } from "react";
 import * as api from "./api";
 // get recipe from the ts types file
 import { Recipe } from "./types";
+import RecipeCard from "./components/RecipeCard";
 const App = () => {
   // update hard coded search term with empty string - tell ts its a string
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -39,8 +40,7 @@ const App = () => {
       {/* typescript needs to know why the type is of image and title, go to types.ts */}
       {recipes.map((recipe) => (
         <div>
-          recipe image location:{recipe.image}
-          recipe title: {recipe.title}
+          <RecipeCard recipe={recipe} />
         </div>
       ))}
     </div>
