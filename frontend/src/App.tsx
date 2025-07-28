@@ -33,7 +33,8 @@ const App = () => {
     try {
       // nextRecipes needs to be appended to the recipes array so the new result dosent blow away the page
       const nextRecipes = await api.searchRecipes(searchTerm, nextPage);
-      setRecipes([]);
+      // copy the recipes array add next page of recipes to it - save to state- trigger re render
+      setRecipes([...recipes, ...nextRecipes.results]);
     } catch (error) {
       console.log(error);
     }
