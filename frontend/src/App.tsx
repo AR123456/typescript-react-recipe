@@ -1,7 +1,7 @@
 // dont need to import React - but do its componetns
 
 import "./App.css";
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, useRef } from "react";
 import * as api from "./api";
 // get recipe from the ts types file
 import { Recipe } from "./types";
@@ -11,6 +11,8 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   // api returns an array of results -
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  // useRef hook for page number- page wont have to re render every time page increments
+  const pageNumber = useRef(1);
 
   // event handler for front end to back will be on submit button
   const handleSearchSubmit = async (event: FormEvent) => {
@@ -24,7 +26,18 @@ const App = () => {
       console.log(error);
     }
   };
-
+  const handleViewMoreClick = async () => {
+    // call recipes api pass in query page
+    // calculate what page number should be and pass along to the API
+    const nextPage = pageNumber.current + 1;
+    try {
+      // nextRecipes needs to be appended to the recipes array so the new result dosent blow away the page
+      const nextRecipes = await api.searchRecipes(searchTerm, nextPage);
+      setRecipes([]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <form onSubmit={(event) => handleSearchSubmit(event)}>
@@ -43,6 +56,9 @@ const App = () => {
           <RecipeCard recipe={recipe} />
         </div>
       ))}
+      <button className="view-more-button" onClick={handleViewMoreClick}>
+        View More
+      </button>
     </div>
   );
 };
