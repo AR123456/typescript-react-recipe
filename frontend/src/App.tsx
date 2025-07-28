@@ -6,7 +6,8 @@ import * as api from "./api";
 // get recipe from the ts types file
 import { Recipe } from "./types";
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("burgers");
+  // update hard coded search term with empty string - tell ts its a string
+  const [searchTerm, setSearchTerm] = useState<string>("");
   // api returns an array of results -
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
