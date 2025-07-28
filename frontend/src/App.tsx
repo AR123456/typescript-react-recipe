@@ -26,6 +26,13 @@ const App = () => {
   return (
     <div>
       <form onSubmit={(event) => handleSearchSubmit(event)}>
+        <input
+          type="text"
+          required
+          placeholder="Enter a search term... "
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
         <button type="submit">Submit</button>
       </form>
       {/* typescript needs to know why the type is of image and title, go to types.ts */}
