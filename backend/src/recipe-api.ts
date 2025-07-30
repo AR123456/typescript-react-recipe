@@ -25,3 +25,5 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
     console.log(error);
   }
 };
+
+export const getRecipeSummary = async () => {};
