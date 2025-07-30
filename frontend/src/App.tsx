@@ -35,6 +35,8 @@ const App = () => {
       const nextRecipes = await api.searchRecipes(searchTerm, nextPage);
       // copy the recipes array add next page of recipes to it - save to state- trigger re render
       setRecipes([...recipes, ...nextRecipes.results]);
+      // save current page number
+      pageNumber.current = nextPage;
     } catch (error) {
       console.log(error);
     }
