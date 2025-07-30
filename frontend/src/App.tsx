@@ -22,6 +22,8 @@ const App = () => {
       const recipes = await api.searchRecipes(searchTerm, 1);
       // set what comes back- triggers component to rerender
       setRecipes(recipes.results);
+      // reset page number with a new search
+      pageNumber.current = 1;
     } catch (error) {
       console.log(error);
     }
