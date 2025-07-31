@@ -38,4 +38,7 @@ export const getRecipeSummary = async (recipeId: string) => {
     apiKey: apiKey,
   };
   url.search = new URLSearchParams(params).toString();
+  // make request  to recipe api
+  const response = await fetch(url);
+  // convert response to json
 };
