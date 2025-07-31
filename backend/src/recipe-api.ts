@@ -27,5 +27,7 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
 };
 // pass in id as arg in the ts way
 export const getRecipeSummary = async (recipeId: string) => {
-  const url = new URL("https://api.spoonacular.com/recipes/{id}/summary");
+  const url = new URL(
+    `https://api.spoonacular.com/recipes/${recipeId}/summary`
+  );
 };
