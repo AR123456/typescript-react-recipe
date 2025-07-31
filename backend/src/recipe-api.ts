@@ -25,5 +25,7 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
     console.log(error);
   }
 };
-
-export const getRecipeSummary = async () => {};
+// pass in id as arg in the ts way
+export const getRecipeSummary = async (recipeId: string) => {
+  const url = new URL("https://api.spoonacular.com/recipes/{id}/summary");
+};
