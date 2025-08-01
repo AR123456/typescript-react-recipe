@@ -30,4 +30,8 @@ export const getRecipeSummary = async (recipeId: string) => {
   const url = new URL(
     `https://api.spoonacular.com/recipes/${recipeId}/summary`
   );
+  const params = {
+    apiKey: apiKey,
+  };
+  url.search = new URLSearchParams();
 };
