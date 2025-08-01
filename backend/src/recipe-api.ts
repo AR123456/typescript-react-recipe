@@ -27,18 +27,5 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
 };
 // pass in id as arg in the ts way
 export const getRecipeSummary = async (recipeId: string) => {
-  // take care of the ts undefined error
-  if (!apiKey) {
-    throw new Error("API Key not found ");
-  }
-  const url = new URL(
-    `https://api.spoonacular.com/recipes/${recipeId}/summary`
-  );
-  const params = {
-    apiKey: apiKey,
-  };
-  url.search = new URLSearchParams(params).toString();
-  // make request  to recipe api
-  const response = await fetch(url);
-  // convert response to json
+  const url = new URL("https://api.spoonacular.com/recipes/{id}/summary");
 };
