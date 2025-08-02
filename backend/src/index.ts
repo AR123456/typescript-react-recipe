@@ -19,7 +19,7 @@ app.use(cors());
 app.get("/api/recipes/search", async (req, res) => {
   const searchTerm = req.query.searchTerm as string;
   const page = parseInt(req.query.page as string);
-  // GET   http://localhost:5000/api/recipe/search?searchTerm=burgers&page=1
+
   const results = await RecipeAPI.searchRecipes(searchTerm, page);
   return res.json(results);
 });
@@ -27,9 +27,10 @@ app.get("/api/recipes/search", async (req, res) => {
 app.get("/api/recipes/:recipeId/summary", async (req, res) => {
   // get the recipe id from the front end
   const recipeId = req.params.recipeId;
+
   // pass to get recipe from api file
   const results = await RecipeAPI.getRecipeSummary(recipeId);
-  //  http://localhost:5000/api/recipe/search?searchTerm=burgers&page=1
+
   return res.json(results);
 });
 app.post("/api/recipes/favorite", async (req, res) => {});
