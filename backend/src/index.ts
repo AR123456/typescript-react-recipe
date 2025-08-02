@@ -28,6 +28,8 @@ app.get("/api/recipes/:recipeId/summary", async (req, res) => {
   // get the recipe id from the front end
   const recipeId = req.params.recipeId;
   // pass to get recipe from api file
+  const results = await RecipeAPI.getRecipeSummary(recipeId);
+  return res.json(results);
 });
 app.post("/api/recipes/favorite", async (req, res) => {});
 app.get("/api/recipes/favorite", async (req, res) => {});
