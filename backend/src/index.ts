@@ -23,7 +23,12 @@ app.get("/api/recipe/search", async (req, res) => {
   const results = await RecipeAPI.searchRecipes(searchTerm, page);
   return res.json(results);
 });
-app.get("/api/recipes/:recipeId/summary", async (req, res) => {});
+// call  the get recipe summary from recipe-api.ts
+app.get("/api/recipes/:recipeId/summary", async (req, res) => {
+  // get the recipe id from the front end
+  const recipeId = req.params.recipeId;
+  // pass to get recipe from api file
+});
 app.post("/api/recipes/favorite", async (req, res) => {});
 app.get("/api/recipes/favorite", async (req, res) => {});
 
