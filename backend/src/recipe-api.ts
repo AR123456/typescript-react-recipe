@@ -41,4 +41,6 @@ export const getRecipeSummary = async (recipeId: string) => {
   // make request  to recipe api
   const response = await fetch(url);
   // convert response to json
+  const json = await response.json();
+  return json;
 };
