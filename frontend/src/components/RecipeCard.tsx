@@ -6,11 +6,10 @@ interface Props {
 
 const RecipeCard = ({ recipe }: Props) => {
   return (
-    <div className="recipe-card" onClick={getRecipeSummary}>
+    <div className="recipe-card">
       <img src={recipe.image} alt="recipe image" />
       <div className="recipe-card-title">
         <h3>{recipe.title}</h3>
-        <h2>{recipe.id}</h2>
       </div>
     </div>
   );
