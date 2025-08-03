@@ -10,6 +10,7 @@ const RecipeModal = () => {
             <h2>Recipe Title</h2>
             <span className="close-btn">&times;</span>
           </div>
+          <p>Recipe Summary</p>
         </div>
       </div>
     </>
