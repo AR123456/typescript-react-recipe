@@ -6,11 +6,18 @@ import * as api from "./api";
 // get recipe from the ts types file
 import { Recipe } from "./types";
 import RecipeCard from "./components/RecipeCard";
+
 const App = () => {
+  // State variables
   // update hard coded search term with empty string - tell ts its a string
   const [searchTerm, setSearchTerm] = useState<string>("");
   // api returns an array of results -
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  // for recipe modal
+  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | undefined>(
+    undefined
+  );
+
   // useRef hook for page number- page wont have to re render every time page increments
   const pageNumber = useRef(1);
 
