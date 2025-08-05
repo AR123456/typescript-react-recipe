@@ -6,19 +6,11 @@ import * as api from "./api";
 // get recipe from the ts types file
 import { Recipe } from "./types";
 import RecipeCard from "./components/RecipeCard";
-import RecipeModal from "./components/RecipeModal";
-
 const App = () => {
-  // State variables
   // update hard coded search term with empty string - tell ts its a string
   const [searchTerm, setSearchTerm] = useState<string>("");
   // api returns an array of results -
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  // for recipe modal
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | undefined>(
-    undefined
-  );
-
   // useRef hook for page number- page wont have to re render every time page increments
   const pageNumber = useRef(1);
 
@@ -66,17 +58,12 @@ const App = () => {
       {/* typescript needs to know why the type is of image and title, go to types.ts */}
       {recipes.map((recipe) => (
         <div>
-          <RecipeCard
-            recipe={recipe}
-            onClick={() => setSelectedRecipe(recipe)}
-          />
+          <RecipeCard recipe={recipe} />
         </div>
       ))}
       <button className="view-more-button" onClick={handleViewMoreClick}>
         View More
       </button>
-      {/* conditionaly render modal if there is a recipe */}
-      {selectedRecipe ? <RecipeModal /> : null}
     </div>
   );
 };
