@@ -6,6 +6,7 @@ import * as api from "./api";
 // get recipe from the ts types file
 import { Recipe } from "./types";
 import RecipeCard from "./components/RecipeCard";
+import RecipeModal from "./components/RecipeModal";
 
 const App = () => {
   // State variables
@@ -71,6 +72,8 @@ const App = () => {
       <button className="view-more-button" onClick={handleViewMoreClick}>
         View More
       </button>
+      {/* conditionaly render modal if there is a recipe */}
+      {selectedRecipe ? <RecipeModal /> : null}
     </div>
   );
 };
