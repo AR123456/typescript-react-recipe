@@ -66,7 +66,10 @@ const App = () => {
       {/* typescript needs to know why the type is of image and title, go to types.ts */}
       {recipes.map((recipe) => (
         <div>
-          <RecipeCard recipe={recipe} onClick={() => setSelectedRecipe()} />
+          <RecipeCard
+            recipe={recipe}
+            onClick={() => setSelectedRecipe(recipe)}
+          />
         </div>
       ))}
       <button className="view-more-button" onClick={handleViewMoreClick}>
