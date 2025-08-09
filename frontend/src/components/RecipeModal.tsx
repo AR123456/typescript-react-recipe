@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { RecipeSummary } from "../types";
+import * as RecipeAPI from "../api";
+// get recipeId from app component
+interface Props {}
 
 const RecipeModal = () => {
   // object of recipe data- account for in types.ts
@@ -7,7 +10,7 @@ const RecipeModal = () => {
   useEffect(() => {
     const fetchRecipeSummary = async () => {
       try {
-        const summaryRecipe = await getRecipeSummary(recipeId);
+        const summaryRecipe = await RecipeAPI.getRecipeSummary(recipeId);
         setRecipeSummary(summaryRecipe);
       } catch (error) {
         console.log(error);
