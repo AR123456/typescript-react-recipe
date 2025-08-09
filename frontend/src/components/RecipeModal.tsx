@@ -5,7 +5,15 @@ const RecipeModal = () => {
   // object of recipe data- account for in types.ts
   const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
   useEffect(() => {
-    const fetchRecipeSummary = (async() = {});
+    const fetchRecipeSummary = async () => {
+      try {
+        const summaryRecipe = await getRecipeSummary(recipeId);
+        setRecipeSummary(summaryRecipe);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchRecipeSummary();
   });
   if (!recipeSummary) {
     return <></>;
