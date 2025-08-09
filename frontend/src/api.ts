@@ -13,3 +13,16 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
   //   send the json on
   return response.json();
 };
+export const getRecipeSummary = async (id: number) => {
+  // GET https://api.spoonacular.com/recipes/4632/summary
+  const baseUrl = new URL(
+    "https://api.spoonacular.com/recipes/`${id}`/summary"
+  );
+  baseUrl.searchParams.append("id", id);
+
+  const response = await fetch(baseUrl);
+  if (!response.ok) {
+    throw new Error(``);
+  }
+  return response.json();
+};
