@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const RecipeModal = () => {
+  // object of recipe data- account for in types.ts
+  const [recipeSummary, setRecipeSummary] = useState();
   return (
     <>
       <div className="overlay"></div>
