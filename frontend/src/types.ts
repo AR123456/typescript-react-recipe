@@ -7,9 +7,3 @@ export interface Recipe {
   image: string;
   imageType: string;
 }
-// types for the RecipeSummary response coming back from api in the RecipeModal
-export interface RecipeSummary {
-  id: number;
-  title: string;
-  summary: string;
-}
