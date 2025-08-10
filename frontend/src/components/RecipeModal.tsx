@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RecipeSummary } from "../types";
 
 const RecipeModal = () => {
   // object of recipe data- account for in types.ts
   const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
+  useEffect(() => {
+    const fetchRecipeSummary = (async() = {});
+  });
   if (!recipeSummary) {
     return <></>;
   }
