@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { RecipeSummary } from "../types";
+import type { RecipeSummary } from "../types";
 import * as RecipeAPI from "../api";
 // get recipeId from app component
-interface Props {}
+interface Props {
+  recipeId: string;
+}
 
-const RecipeModal = () => {
+const RecipeModal = ({ recipeId }: Props) => {
   // object of recipe data- account for in types.ts
   const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
   useEffect(() => {
