@@ -20,6 +20,7 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
     const searchResponse = await fetch(url);
     // need data from body of http response
     const resultsJson = await searchResponse.json();
+
     return resultsJson;
   } catch (error) {
     console.log(error);
@@ -43,5 +44,6 @@ export const getRecipeSummary = async (recipeId: string) => {
   const response = await fetch(url);
   // convert response to json
   const json = await response.json();
+
   return json;
 };
