@@ -19,7 +19,7 @@ const RecipeModal = ({ recipeId }: Props) => {
       }
     };
     fetchRecipeSummary();
-  });
+  }, [recipeId]);
   if (!recipeSummary) {
     return <></>;
   }

@@ -4,7 +4,7 @@ import "./App.css";
 import { useState, type FormEvent, useRef } from "react";
 import * as api from "./api";
 // get recipe from the ts types file
-import { Recipe } from "./types";
+import type { Recipe } from "./types";
 import RecipeCard from "./components/RecipeCard";
 import RecipeModal from "./components/RecipeModal";
 
@@ -76,7 +76,9 @@ const App = () => {
         View More
       </button>
       {/* conditionaly render modal if there is a recipe */}
-      {selectedRecipe ? <RecipeModal /> : null}
+      {selectedRecipe ? (
+        <RecipeModal recipeId={selectedRecipe.id.toString()} />
+      ) : null}
     </div>
   );
 };
