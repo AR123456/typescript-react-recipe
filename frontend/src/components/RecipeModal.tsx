@@ -8,7 +8,7 @@ interface Props {
   onClose: () => void;
 }
 
-const RecipeModal = ({ recipeId }: Props) => {
+const RecipeModal = ({ recipeId, onClose }: Props) => {
   // object of recipe data- account for in types.ts
   const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
   useEffect(() => {
@@ -32,7 +32,9 @@ const RecipeModal = ({ recipeId }: Props) => {
         <div className="modal-content">
           <div className="modal-header">
             <h2>{recipeSummary.title}</h2>
-            <span className="close-btn">&times;</span>
+            <span className="close-btn" onClick={onClose}>
+              &times;
+            </span>
           </div>
           {/* rendering HTML from api generally a no no  */}
 
