@@ -27,6 +27,7 @@ app.get("/api/recipes/search", async (req, res) => {
 app.get("/api/recipes/:recipeId/summary", async (req, res) => {
   // get the recipe id from the front end
   const recipeId = req.params.recipeId;
+  console.log(recipeId, "backend");
 
   // pass to get recipe from api file
   const results = await RecipeAPI.getRecipeSummary(recipeId);
