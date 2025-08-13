@@ -29,7 +29,7 @@ const RecipeModal = ({ recipeId }: Props) => {
       <div className="modal">
         <div className="modal-content">
           <div className="modal-header">
-            <h2>{recipeSummary?.id}</h2>
+            <h2>{recipeSummary.id}</h2>
             <span className="close-btn">&times;</span>
           </div>
           {/* rendering HTML from api generally a no no  */}
