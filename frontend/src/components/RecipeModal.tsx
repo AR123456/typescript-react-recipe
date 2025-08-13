@@ -4,6 +4,8 @@ import * as RecipeAPI from "../api";
 // get recipeId from app component
 interface Props {
   recipeId: string;
+  // from App.tsx
+  onClose: () => void;
 }
 
 const RecipeModal = ({ recipeId }: Props) => {
