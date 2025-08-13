@@ -77,7 +77,10 @@ const App = () => {
       </button>
       {/* conditionaly render modal if there is a recipe */}
       {selectedRecipe ? (
-        <RecipeModal recipeId={selectedRecipe.id.toString()} />
+        <RecipeModal
+          recipeId={selectedRecipe.id.toString()}
+          onClose={() => setSelectedRecipe(undefined)}
+        />
       ) : null}
     </div>
   );
