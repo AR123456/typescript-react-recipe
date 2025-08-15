@@ -12,9 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
-
 // routes
-
 app.get("/api/recipes/search", async (req, res) => {
   const searchTerm = req.query.searchTerm as string;
   const page = parseInt(req.query.page as string);
@@ -28,7 +26,10 @@ app.get("/api/recipes/:recipeId/summary", async (req, res) => {
   const results = await RecipeAPI.getRecipeSummary(recipeId);
   return res.json(results);
 });
-app.post("/api/recipes/favorite", async (req, res) => {});
+// create the favorite via a post
+app.post("/api/recipes/favorite", async (req, res) => {
+  //
+});
 app.get("/api/recipes/favorite", async (req, res) => {});
 
 app.delete("/api/recipes/favorite", async (req, res) => {});

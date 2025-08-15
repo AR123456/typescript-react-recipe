@@ -13,4 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
- 
+//  create schema using prisma
+model FavoriteRecipes{
+// integer that auto increments
+id Int @id @default(autoincrement())
+//  the recipeID must be unique no dups
+recipeId Int @unique
+
+}
