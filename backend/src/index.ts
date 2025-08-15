@@ -3,10 +3,11 @@ import cors from "cors";
 import "dotenv/config";
 //  to support multiple API calls to different consts
 import * as RecipeAPI from "./recipe-api.ts";
-
+// import the prisma client
 import { PrismaClient } from "@prisma/client";
 const app = express();
-const prisma = new PrismaClient();
+
+const prismaClient = new PrismaClient();
 
 const PORT = process.env.PORT || 5000;
 
@@ -28,7 +29,18 @@ app.get("/api/recipes/:recipeId/summary", async (req, res) => {
 });
 // create the favorite via a post
 app.post("/api/recipes/favorite", async (req, res) => {
-  //
+  //when route is called will be a recipe id in request body
+  const recipeId = req.body.recipeId;
+  // use prisma client to save id to db
+  try {
+    // save using model created in schema.prisma
+    const favoriteRecipe = await prismaClient.favoriteRecipes.create({
+      data: {
+        // id will be auto generated
+        recipeId: recipeId,
+      },
+    });
+  } catch (error) {}
 });
 app.get("/api/recipes/favorite", async (req, res) => {});
 
