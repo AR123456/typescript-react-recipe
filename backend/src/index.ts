@@ -53,7 +53,9 @@ app.get("/api/recipes/favorite", async (req, res) => {
     // get the recipes and assign to the recipes variable
     const recipes = await prismaClient.favoriteRecipes.findMany();
     // call API and get the recipe back with the same data previously-
-    //Get recipe information bulk
+    //Get recipe information bulk- iterate over the list of the favorites to make array of favs for the get bulk
+    const recipeIds = recipes.map((recipe) => recipe.recipeId.toString());
+    // pass the recipeIds to spoonacular - logic in the recipe-api file
   } catch (error) {}
 });
 
