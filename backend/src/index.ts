@@ -29,7 +29,6 @@ app.get("/api/recipes/:recipeId/summary", async (req, res) => {
 });
 // create the favorite via a post
 app.post("/api/recipes/favorite", async (req, res) => {
-  console.log("post route called ");
   //when route is called will be a recipe id in request body
   const recipeId = req.body.recipeId;
   // use prisma client to save id to db
@@ -49,7 +48,14 @@ app.post("/api/recipes/favorite", async (req, res) => {
     return res.status(500).json({ error: "Something went wrong" });
   }
 });
-app.get("/api/recipes/favorite", async (req, res) => {});
+app.get("/api/recipes/favorite", async (req, res) => {
+  try {
+    // get the recipes and assign to the recipes variable
+    const recipes = await prismaClient.favoriteRecipes.findMany();
+    // call API and get the recipe back with the same data previously-
+    //Get recipe information bulk
+  } catch (error) {}
+});
 
 app.delete("/api/recipes/favorite", async (req, res) => {});
 
