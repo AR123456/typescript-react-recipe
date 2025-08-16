@@ -40,7 +40,13 @@ app.post("/api/recipes/favorite", async (req, res) => {
         recipeId: recipeId,
       },
     });
-  } catch (error) {}
+    // return success and send saved to front end
+    return res.status(202).json(favoriteRecipe);
+  } catch (error) {
+    console.log(error);
+    // send error and helpful text to front end
+    return res.status(500).json({ error: "Something went wrong" });
+  }
 });
 app.get("/api/recipes/favorite", async (req, res) => {});
 
