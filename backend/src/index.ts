@@ -29,6 +29,7 @@ app.get("/api/recipes/:recipeId/summary", async (req, res) => {
 });
 // create the favorite via a post
 app.post("/api/recipes/favorite", async (req, res) => {
+  console.log("post route called ");
   //when route is called will be a recipe id in request body
   const recipeId = req.body.recipeId;
   // use prisma client to save id to db
@@ -44,7 +45,7 @@ app.post("/api/recipes/favorite", async (req, res) => {
     return res.status(202).json(favoriteRecipe);
   } catch (error) {
     console.log(error);
-    // send error and helpful text to front end
+    // send error and helpful text to front end - for safety do not send error to front end it has table structure in it
     return res.status(500).json({ error: "Something went wrong" });
   }
 });
