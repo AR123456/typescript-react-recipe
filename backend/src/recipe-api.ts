@@ -45,57 +45,19 @@ export const getRecipeSummary = async (recipeId: string) => {
 
   return json;
 };
-// ///////////////re write from Chat GPT
-// recipe-api.ts
-
-// export const searchRecipes = async (searchTerm: string, page: number) => {
-//   const apiKey = process.env.API_KEY;
-//   if (!apiKey) {
-//     throw new Error("API Key not found");
-//   }
-
-//   const url = new URL("https://api.spoonacular.com/recipes/complexSearch");
-//   const queryParams = {
-//     apiKey,
-//     query: searchTerm,
-//     number: "10",
-//     offset: (page * 10).toString(),
-//   };
-//   url.search = new URLSearchParams(queryParams).toString();
-
-//   console.log("Search request URL:", url.toString());
-
-//   const response = await fetch(url);
-//   if (!response.ok) {
-//     console.error(
-//       `Search request failed: ${response.status} ${response.statusText}`
-//     );
-//     throw new Error(await response.text());
-//   }
-
-//   return response.json();
-// };
-
-// export const getRecipeSummary = async (recipeId: string) => {
-//   const apiKey = process.env.API_KEY;
-//   if (!apiKey) {
-//     throw new Error("API Key not found");
-//   }
-
-//   const url = new URL(
-//     `https://api.spoonacular.com/recipes/${recipeId}/summary`
-//   );
-//   url.search = new URLSearchParams({ apiKey }).toString();
-
-//   console.log("Summary request URL:", url.toString());
-
-//   const response = await fetch(url);
-//   if (!response.ok) {
-//     console.error(
-//       `Summary request failed: ${response.status} ${response.statusText}`
-//     );
-//     throw new Error(await response.text());
-//   }
-
-//   return response.json();
-// };
+//  faves from db pass to spoonacular
+export const getFavoriteRecipesByIDs = async (
+  recipeIds: string,
+  page: number
+) => {
+  if (!apiKey) {
+    throw new Error("API Key not found ");
+  }
+  const url = new URL(`https://api.spoonacular.com/recipes/informationBulk`);
+  const params = {
+    apiKey: apiKey,
+    recipeIds: recipeIds,
+    offset: (page * 10).toString(),
+  };
+  url.search = new URLSearchParams(params).toString();
+};
