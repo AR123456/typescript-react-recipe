@@ -61,5 +61,6 @@ export const getFavoriteRecipesByIDs = async (ids: string[], page: number) => {
   const searchResponse = await fetch(url);
   // convert to json
   const json = await searchResponse.json();
-  return json;
+  // this is an object
+  return { results: json };
 };
