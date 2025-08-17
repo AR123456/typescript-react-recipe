@@ -56,7 +56,14 @@ app.get("/api/recipes/favorite", async (req, res) => {
     //Get recipe information bulk- iterate over the list of the favorites to make array of favs for the get bulk
     const recipeIds = recipes.map((recipe) => recipe.recipeId.toString());
     // pass the recipeIds to spoonacular - logic in the recipe-api file
-  } catch (error) {}
+    const favorites = await RecipeAPI.getFavoriteRecipesByIDs(recipeIds);
+    // send to front end
+    return res.json(favorites);
+  } catch (error) {
+    console.log(error);
+    // send error and helpful text to front end - for safety do not send error to front end it has table structure in it
+    return res.status(500).json({ error: "Something went wrong" });
+  }
 });
 
 app.delete("/api/recipes/favorite", async (req, res) => {});

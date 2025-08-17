@@ -46,7 +46,7 @@ export const getRecipeSummary = async (recipeId: string) => {
   return json;
 };
 //  faves from db pass to spoonacular
-export const getFavoriteRecipesByIDs = async (ids: string[], page: number) => {
+export const getFavoriteRecipesByIDs = async (ids: string[]) => {
   if (!apiKey) {
     throw new Error("API Key not found ");
   }
