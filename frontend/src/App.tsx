@@ -7,6 +7,8 @@ import * as api from "./api";
 import type { Recipe } from "./types";
 import RecipeCard from "./components/RecipeCard";
 import RecipeModal from "./components/RecipeModal";
+// tabs type string for useState can only be one of these two
+type Tabs = "search" | "favorites";
 
 const App = () => {
   // State variables
@@ -18,6 +20,8 @@ const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | undefined>(
     undefined
   );
+  // favorites tab- either search or favorites
+  const [selectedTab, setSelectedTab] = useState<Tabs>();
 
   // useRef hook for page number- page wont have to re render every time page increments
   const pageNumber = useRef(1);
