@@ -62,28 +62,34 @@ const App = () => {
         <h1 onClick={() => setSelectedTab("search")}>Recipe Search</h1>
         <h1 onClick={() => setSelectedTab("favorites")}>Favorites</h1>
       </div>
-      <form onSubmit={(event) => handleSearchSubmit(event)}>
-        <input
-          type="text"
-          required
-          placeholder="Enter a search term... "
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {/* typescript needs to know why the type is of image and title, go to types.ts */}
-      {recipes.map((recipe) => (
-        <div key={recipe.id}>
-          <RecipeCard
-            recipe={recipe}
-            onClick={() => setSelectedRecipe(recipe)}
-          />
-        </div>
-      ))}
-      <button className="view-more-button" onClick={handleViewMoreClick}>
-        View More
-      </button>
+      {/* conditionally render tab */}
+      {selectedTab === "search" && (
+        <>
+          <form onSubmit={(event) => handleSearchSubmit(event)}>
+            <input
+              type="text"
+              required
+              placeholder="Enter a search term... "
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
+            <button type="submit">Submit</button>
+          </form>
+          {/* typescript needs to know why the type is of image and title, go to types.ts */}
+          {recipes.map((recipe) => (
+            <div key={recipe.id}>
+              <RecipeCard
+                recipe={recipe}
+                onClick={() => setSelectedRecipe(recipe)}
+              />
+            </div>
+          ))}
+          <button className="view-more-button" onClick={handleViewMoreClick}>
+            View More
+          </button>
+        </>
+      )}
+
       {/* conditionaly render modal if there is a recipe */}
       {selectedRecipe ? (
         <RecipeModal
