@@ -66,7 +66,22 @@ app.get("/api/recipes/favorite", async (req, res) => {
   }
 });
 
-app.delete("/api/recipes/favorite", async (req, res) => {});
+app.delete("/api/recipes/favorite", async (req, res) => {
+  // del from DB del request body
+  const recipeId = req.body.recipeId;
+  try {
+    await prismaClient.favoriteRecipes.delete({
+      where: {
+        recipeId: recipeId,
+      },
+    });
+    // success
+    return res.status(204).send();
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Something went wrong" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
