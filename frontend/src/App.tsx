@@ -21,7 +21,7 @@ const App = () => {
     undefined
   );
   // favorites tab- either search or favorites
-  const [selectedTab, setSelectedTab] = useState<Tabs>();
+  const [selectedTab, setSelectedTab] = useState<Tabs>("search");
 
   // useRef hook for page number- page wont have to re render every time page increments
   const pageNumber = useRef(1);
@@ -57,6 +57,11 @@ const App = () => {
   };
   return (
     <div>
+      {/* tabs  */}
+      <div className="tabs">
+        <h1 onClick={() => setSelectedTab("search")}>Recipe Search</h1>
+        <h1 onClick={() => setSelectedTab("favorites")}>Favorites</h1>
+      </div>
       <form onSubmit={(event) => handleSearchSubmit(event)}>
         <input
           type="text"
