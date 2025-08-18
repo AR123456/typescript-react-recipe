@@ -89,8 +89,9 @@ const App = () => {
           </button>
         </>
       )}
+      {selectedTab === "favorites" && <div>This is favorites</div>}
 
-      {/* conditionaly render modal if there is a recipe */}
+      {/* conditionally render modal if there is a recipe */}
       {selectedRecipe ? (
         <RecipeModal
           recipeId={selectedRecipe.id.toString()}
