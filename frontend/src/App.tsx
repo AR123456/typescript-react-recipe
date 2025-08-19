@@ -1,7 +1,7 @@
 // dont need to import React - but do its componetns
 
 import "./App.css";
-import { useState, type FormEvent, useRef } from "react";
+import { useState, type FormEvent, useRef, useEffect } from "react";
 import * as api from "./api";
 // get recipe from the ts types file
 import type { Recipe } from "./types";
@@ -25,8 +25,19 @@ const App = () => {
 
   // useRef hook for page number- page wont have to re render every time page increments
   const pageNumber = useRef(1);
-
-  // event handler for front end to back will be on submit button
+  // fetch favorite data when app loads
+  useEffect(() => {
+    const fetchFavoriteRecipes = async () => {
+      try {
+        // logic in api.ts
+        const favoriteRecipes = await api.getFavoriteRecipes();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchFavoriteRecipes();
+  }, []);
+  // event =>[handler for front end to back will be on submit button
   const handleSearchSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
