@@ -103,7 +103,13 @@ const App = () => {
           </button>
         </>
       )}
-      {selectedTab === "favorites" && <div>This is favorites</div>}
+      {selectedTab === "favorites" && (
+        <div>
+          {favoriteRecipes.map((recipe) => (
+            <RecipeCard recipe={recipe} />
+          ))}
+        </div>
+      )}
 
       {/* conditionally render modal if there is a recipe */}
       {selectedRecipe ? (
