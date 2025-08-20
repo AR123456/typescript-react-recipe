@@ -22,7 +22,8 @@ const App = () => {
   );
   // favorites tab- either search or favorites
   const [selectedTab, setSelectedTab] = useState<Tabs>("search");
-
+  // store favorite recipes in state - re using type from api returns
+  const [favoriteRecipes, setFavoriteRecipes] = useState<Recipe[]>([]);
   // useRef hook for page number- page wont have to re render every time page increments
   const pageNumber = useRef(1);
   // fetch favorite data when app loads
@@ -31,6 +32,8 @@ const App = () => {
       try {
         // logic in api.ts
         const favoriteRecipes = await api.getFavoriteRecipes();
+        // call the use state setter
+        setFavoriteRecipes = await api.getFavoriteRecipes();
       } catch (error) {
         console.log(error);
       }
