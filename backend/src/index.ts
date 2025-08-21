@@ -29,8 +29,12 @@ app.get("/api/recipes/:recipeId/summary", async (req, res) => {
 });
 // create the favorite via a post
 app.post("/api/recipes/favorite", async (req, res) => {
+  console.log("Incoming body:", req.body);
   //when route is called will be a recipe id in request body
   const recipeId = req.body.recipeId;
+  if (!recipeId) {
+    return res.status(400).json({ error: "recipeId is required" });
+  }
   // use prisma client to save id to db
   try {
     // save using model created in schema.prisma
