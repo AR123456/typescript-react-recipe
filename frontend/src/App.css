@@ -36,8 +36,3 @@
   display: flex;
   gap: 2em;
 }
-.recipe-card-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-}

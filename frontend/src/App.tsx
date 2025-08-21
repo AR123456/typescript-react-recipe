@@ -33,7 +33,7 @@ const App = () => {
         // logic in api.ts
         const favoriteRecipes = await api.getFavoriteRecipes();
         // call the use state setter
-        setFavoriteRecipes(favoriteRecipes.results);
+        setFavoriteRecipes(favoriteRecipes);
       } catch (error) {
         console.log(error);
       }
