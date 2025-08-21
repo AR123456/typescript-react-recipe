@@ -69,6 +69,15 @@ const App = () => {
       console.log(error);
     }
   };
+  // add a fav to the db
+  const addFavoriteRecipe = async (recipe: Recipe) => {
+    try {
+      // call function from backend
+      await api.addFavoriteRecipe(recipe);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       {/* tabs  */}
