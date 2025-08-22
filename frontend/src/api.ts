@@ -47,6 +47,7 @@ export const addFavoriteRecipe = async (recipe: Recipe) => {
     // body needs to be string
     body: JSON.stringify(body),
   });
+  console.log(response, "from api.ts");
   if (!response.ok) {
     throw new Error(`HTTP error Status: ${response.status}`);
   }

@@ -69,11 +69,13 @@ const App = () => {
       console.log(error);
     }
   };
-  // add a fav to the db
+  // call when heart clicked
   const addFavoriteRecipe = async (recipe: Recipe) => {
     try {
-      // call function frontend api.ts
+      // persist to db
       await api.addFavoriteRecipe(recipe);
+      // Add new fav to state, copy it into the array
+      setFavoriteRecipes([...favoriteRecipes, recipe]);
     } catch (error) {
       console.log(error);
     }
@@ -104,6 +106,7 @@ const App = () => {
               <RecipeCard
                 recipe={recipe}
                 onClick={() => setSelectedRecipe(recipe)}
+                onFavoriteButtonClick={addFavoriteRecipe}
               />
             </div>
           ))}
