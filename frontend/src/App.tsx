@@ -72,7 +72,7 @@ const App = () => {
   // add a fav to the db
   const addFavoriteRecipe = async (recipe: Recipe) => {
     try {
-      // call function from backend
+      // call function frontend api.ts
       await api.addFavoriteRecipe(recipe);
     } catch (error) {
       console.log(error);
