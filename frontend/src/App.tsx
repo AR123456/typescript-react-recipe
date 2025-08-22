@@ -121,6 +121,8 @@ const App = () => {
             <RecipeCard
               recipe={recipe}
               onClick={() => setSelectedRecipe(recipe)}
+              // click of heart will remove from favs
+              onFavoriteButtonClick={() => undefined}
             />
           ))}
         </div>

@@ -1,3 +1,5 @@
+import type { Recipe } from "./types";
+
 export const searchRecipes = async (searchTerm: string, page: number) => {
   // the node back end  end point -note this is recipes not recipe
   const baseUrl = new URL("http://localhost:5000/api/recipes/search");
@@ -47,7 +49,7 @@ export const addFavoriteRecipe = async (recipe: Recipe) => {
     // body needs to be string
     body: JSON.stringify(body),
   });
-  console.log(response, "from api.ts");
+
   if (!response.ok) {
     throw new Error(`HTTP error Status: ${response.status}`);
   }
