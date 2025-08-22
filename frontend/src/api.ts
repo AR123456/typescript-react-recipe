@@ -38,5 +38,16 @@ export const addFavoriteRecipe = async (recipe: Recipe) => {
   const body = {
     recipeId: recipe.id,
   };
-  // pass to fetch and make request to backend - tell fentch its a post
+  // pass to fetch and make request to backend - tell fentch its a post- options object
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // body needs to be string
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    throw new Error(`HTTP error Status: ${response.status}`);
+  }
 };
