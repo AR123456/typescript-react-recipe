@@ -26,7 +26,7 @@ export const getRecipeSummary = async (recipeId: string) => {
   return response.json();
 };
 export const getFavoriteRecipes = async () => {
-  const url = new URL(`http://localhost:5000/api/recipe/favorite`);
+  const url = new URL(`http://localhost:5000/api/recipes/favorite`);
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`HTTP error Status: ${response.status}`);
@@ -35,7 +35,7 @@ export const getFavoriteRecipes = async () => {
 };
 // add a recipe to the db
 export const addFavoriteRecipe = async (recipe: Recipe) => {
-  const url = new URL(`http://localhost:5000/api/recipe/favorite`);
+  const url = new URL(`http://localhost:5000/api/recipes/favorite`);
   // creating body, pass recipe id
   const body = {
     recipeId: recipe.id,
