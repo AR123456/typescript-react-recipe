@@ -40,7 +40,7 @@ export const addFavoriteRecipe = async (recipe: Recipe) => {
   const body = {
     recipeId: recipe.id,
   };
-  // pass to fetch and make request to backend - tell fentch its a post- options object
+  // pass to fetch and make request to backend - tell fetch its a post- options object
   const response = await fetch(url, {
     method: "POST",
     headers: {

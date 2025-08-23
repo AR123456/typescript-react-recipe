@@ -101,15 +101,21 @@ const App = () => {
             <button type="submit">Submit</button>
           </form>
           {/* typescript needs to know why the type is of image and title, go to types.ts */}
-          {recipes.map((recipe) => (
-            <div key={recipe.id}>
-              <RecipeCard
-                recipe={recipe}
-                onClick={() => setSelectedRecipe(recipe)}
-                onFavoriteButtonClick={addFavoriteRecipe}
-              />
-            </div>
-          ))}
+          {recipes.map((recipe) => {
+            // state object - this function will return true if the recipe is in the fav recipe array
+            const isFavorite = favoriteRecipes.some(
+              (favRecipe) => recipe.id === favRecipe.id
+            );
+            return (
+              <div key={recipe.id}>
+                <RecipeCard
+                  recipe={recipe}
+                  onClick={() => setSelectedRecipe(recipe)}
+                  onFavoriteButtonClick={addFavoriteRecipe}
+                />
+              </div>
+            );
+          })}
           <button className="view-more-button" onClick={handleViewMoreClick}>
             View More
           </button>
