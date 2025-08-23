@@ -3,12 +3,19 @@ import type { Recipe } from "../types";
 
 interface Props {
   recipe: Recipe;
+  // getting isFaveorite from state via App.ts
+  isFavorite: boolean;
   // on click has to be a function that accepts a recipe and returns nothing
   onClick: () => void;
   onFavoriteButtonClick: (recipe: Recipe) => void;
 }
 
-const RecipeCard = ({ recipe, onClick, onFavoriteButtonClick }: Props) => {
+const RecipeCard = ({
+  recipe,
+  onClick,
+  onFavoriteButtonClick,
+  isFavorite,
+}: Props) => {
   return (
     <div className="recipe-card" onClick={onClick}>
       <img src={recipe.image} alt="recipe image" />

@@ -102,7 +102,7 @@ const App = () => {
           </form>
           {/* typescript needs to know why the type is of image and title, go to types.ts */}
           {recipes.map((recipe) => {
-            // state object - this function will return true if the recipe is in the fav recipe array
+            // state object - this function will return true if the recipe is in the fav recipe array - pass to recipe card
             const isFavorite = favoriteRecipes.some(
               (favRecipe) => recipe.id === favRecipe.id
             );
@@ -112,6 +112,7 @@ const App = () => {
                   recipe={recipe}
                   onClick={() => setSelectedRecipe(recipe)}
                   onFavoriteButtonClick={addFavoriteRecipe}
+                  isFavorite={isFavorite}
                 />
               </div>
             );
