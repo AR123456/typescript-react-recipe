@@ -54,4 +54,24 @@ export const addFavoriteRecipe = async (recipe: Recipe) => {
     throw new Error(`HTTP error Status: ${response.status}`);
   }
 };
-export const removeFavoriteRecipe = async (recipe: Recipe) => {};
+// remove from fav
+export const removeFavoriteRecipe = async (recipe: Recipe) => {
+  const url = new URL(`http://localhost:5000/api/recipes/favorite`);
+  // creating body, pass recipe id
+  const body = {
+    recipeId: recipe.id,
+  };
+  // pass to fetch and make request to backend - tell fetch its a post- options object
+  const response = await fetch(url, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // body needs to be string
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error Status: ${response.status}`);
+  }
+};
