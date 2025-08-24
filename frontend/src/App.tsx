@@ -80,7 +80,7 @@ const App = () => {
       console.log(error);
     }
   };
-  const removeFavoriteRecipe = async () => {
+  const removeFavoriteRecipe = async (recipe: Recipe) => {
     try {
       // call api
       await api.removeFavoriteRecipe(recipe);
