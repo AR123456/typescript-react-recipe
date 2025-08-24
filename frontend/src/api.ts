@@ -54,3 +54,4 @@ export const addFavoriteRecipe = async (recipe: Recipe) => {
     throw new Error(`HTTP error Status: ${response.status}`);
   }
 };
+export const removeFavoriteRecipe = async (recipe: Recipe) => {};
