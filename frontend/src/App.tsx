@@ -69,7 +69,7 @@ const App = () => {
       console.log(error);
     }
   };
-  // call when heart clicked
+  // heart click adds or removes
   const addFavoriteRecipe = async (recipe: Recipe) => {
     try {
       // persist to db
@@ -80,6 +80,7 @@ const App = () => {
       console.log(error);
     }
   };
+  const removeFavoriteRecipe = async () => {};
   return (
     <div>
       {/* tabs  */}
