@@ -88,6 +88,7 @@ const App = () => {
       const updatedRecipes = favoriteRecipes.filter(
         (favRecipe) => recipe.id !== favRecipe.id
       );
+      setFavoriteRecipes(updatedRecipes);
     } catch (error) {
       console.log(error);
     }
@@ -123,7 +124,9 @@ const App = () => {
                 <RecipeCard
                   recipe={recipe}
                   onClick={() => setSelectedRecipe(recipe)}
-                  onFavoriteButtonClick={addFavoriteRecipe}
+                  onFavoriteButtonClick={
+                    isFavorite ? addFavoriteRecipe : removeFavoriteRecipe
+                  }
                   isFavorite={isFavorite}
                 />
               </div>
