@@ -144,7 +144,7 @@ const App = () => {
               recipe={recipe}
               onClick={() => setSelectedRecipe(recipe)}
               // click of heart will remove from favs
-              onFavoriteButtonClick={() => undefined}
+              onFavoriteButtonClick={removeFavoriteRecipe}
               // this is the favs tab so every heart should be red
               isFavorite={true}
             />
