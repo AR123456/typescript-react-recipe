@@ -84,6 +84,10 @@ const App = () => {
     try {
       // call api
       await api.removeFavoriteRecipe(recipe);
+      // filter out the removed recipe
+      const updatedRecipes = favoriteRecipes.filter(
+        (favRecipe) => recipe.id !== favRecipe.id
+      );
     } catch (error) {
       console.log(error);
     }
