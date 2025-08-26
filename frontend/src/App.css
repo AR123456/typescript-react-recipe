@@ -6,6 +6,15 @@
   flex-direction: column;
   gap: 2em;
 }
+.header {
+  position: relative;
+}
+.header img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
 /* modal styles  */
 .overlay {
   position: fixed;
