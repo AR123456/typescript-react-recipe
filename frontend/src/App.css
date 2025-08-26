@@ -1,6 +1,11 @@
 #root {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
 /* modal styles  */
 .overlay {
   position: fixed;
