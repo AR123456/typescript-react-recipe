@@ -94,7 +94,11 @@ const App = () => {
     }
   };
   return (
-    <div>
+    <div className="app-container">
+      <div className="header">
+        <img src="/hero-image.jpg" alt="hero" />
+        <div className="title">My Recipe App</div>
+      </div>
       {/* tabs  */}
       <div className="tabs">
         <h1 onClick={() => setSelectedTab("search")}>Recipe Search</h1>
@@ -125,7 +129,7 @@ const App = () => {
                   recipe={recipe}
                   onClick={() => setSelectedRecipe(recipe)}
                   onFavoriteButtonClick={
-                    isFavorite ? addFavoriteRecipe : removeFavoriteRecipe
+                    isFavorite ? removeFavoriteRecipe : addFavoriteRecipe
                   }
                   isFavorite={isFavorite}
                 />
