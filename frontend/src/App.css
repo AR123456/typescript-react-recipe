@@ -1,6 +1,12 @@
 #root {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+body {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  height: 100%;
+  background-color: rgb(237, 250, 250);
+}
 .app-container {
   display: flex;
   flex-direction: column;
