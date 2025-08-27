@@ -14,6 +14,8 @@
   height: 500px;
   object-fit: cover;
   object-position: center;
+  opacity: 50%;
+  border-radius: 1em;
 }
 /* modal styles  */
 .overlay {
