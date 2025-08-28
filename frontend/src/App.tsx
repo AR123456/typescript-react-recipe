@@ -7,6 +7,7 @@ import * as api from "./api";
 import type { Recipe } from "./types";
 import RecipeCard from "./components/RecipeCard";
 import RecipeModal from "./components/RecipeModal";
+import { AiOutlineSearch } from "react-icons/ai";
 // tabs type string for useState can only be one of these two
 type Tabs = "search" | "favorites";
 
@@ -125,7 +126,9 @@ const App = () => {
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
             />
-            <button type="submit">Submit</button>
+            <button type="submit">
+              <AiOutlineSearch></AiOutlineSearch>
+            </button>
           </form>
           {/* typescript needs to know why the type is of image and title, go to types.ts */}
           {recipes.map((recipe) => {
