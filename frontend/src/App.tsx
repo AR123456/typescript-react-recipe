@@ -101,7 +101,12 @@ const App = () => {
       </div>
       {/* tabs  */}
       <div className="tabs">
-        <h1 onClick={() => setSelectedTab("search")}>Recipe Search</h1>
+        <h1
+          className={selectedTab === "search" ? "tab-active" : ""}
+          onClick={() => setSelectedTab("search")}
+        >
+          Recipe Search
+        </h1>
         <h1 onClick={() => setSelectedTab("favorites")}>Favorites</h1>
       </div>
       {/* conditionally render tab */}
