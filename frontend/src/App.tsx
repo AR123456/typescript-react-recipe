@@ -127,7 +127,7 @@ const App = () => {
               onChange={(event) => setSearchTerm(event.target.value)}
             />
             <button type="submit">
-              <AiOutlineSearch></AiOutlineSearch>
+              <AiOutlineSearch size={40}></AiOutlineSearch>
             </button>
           </form>
           {/* typescript needs to know why the type is of image and title, go to types.ts */}

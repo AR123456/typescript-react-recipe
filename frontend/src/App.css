@@ -18,6 +18,11 @@ body {
   border-bottom: 4px rgb(202, 129, 2) solid;
   padding-bottom: 0.5em;
 }
+form {
+  display: flex;
+  background-color: white;
+  align-items: center;
+}
 .app-container {
   display: flex;
   flex-direction: column;
