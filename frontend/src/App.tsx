@@ -107,7 +107,12 @@ const App = () => {
         >
           Recipe Search
         </h1>
-        <h1 onClick={() => setSelectedTab("favorites")}>Favorites</h1>
+        <h1
+          className={selectedTab === "favorites" ? "tab-active" : ""}
+          onClick={() => setSelectedTab("favorites")}
+        >
+          Favorites
+        </h1>
       </div>
       {/* conditionally render tab */}
       {selectedTab === "search" && (
