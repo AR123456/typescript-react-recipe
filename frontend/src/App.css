@@ -23,6 +23,13 @@ form {
   background-color: white;
   align-items: center;
 }
+input {
+  padding: 0.5em;
+  font-size: 2em;
+  /* input take up all avalible space */
+  flex: 1;
+  border: none;
+}
 .app-container {
   display: flex;
   flex-direction: column;
