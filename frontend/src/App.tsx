@@ -157,7 +157,7 @@ const App = () => {
         </>
       )}
       {selectedTab === "favorites" && (
-        <div>
+        <div className="recipe-grid">
           {favoriteRecipes.map((recipe) => (
             <RecipeCard
               recipe={recipe}
