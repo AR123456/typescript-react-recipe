@@ -37,6 +37,12 @@ button {
   background-color: white;
   border: none;
 }
+.recipe-grid {
+  display: grid;
+  /* responsive image gird */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  /* spacing */
+}
 .app-container {
   display: flex;
   flex-direction: column;
