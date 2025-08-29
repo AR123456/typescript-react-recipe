@@ -30,6 +30,13 @@ input {
   flex: 1;
   border: none;
 }
+input:focus {
+  outline: none;
+}
+button {
+  background-color: white;
+  border: none;
+}
 .app-container {
   display: flex;
   flex-direction: column;
