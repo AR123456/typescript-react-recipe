@@ -42,6 +42,9 @@ button {
   /* responsive image gird */
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   /* spacing */
+  gap: 2em;
+}
+.recipe-card {
 }
 .app-container {
   display: flex;
