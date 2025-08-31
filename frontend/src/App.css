@@ -54,6 +54,22 @@ button {
   position: relative;
   gap: 1.5rem;
 }
+
+.recipe-card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  white-space: nowrap;
+  /* if the text overflows show ellipsis */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.view-more-button {
+  font-size: 1.5em;
+  padding: 1em;
+  font-weight: bold;
+  /* center in flex box container */
+  margin: auto;
+}
 .app-container {
   display: flex;
   flex-direction: column;
