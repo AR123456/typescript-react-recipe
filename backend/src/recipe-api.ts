@@ -33,7 +33,8 @@ export const getRecipeSummary = async (recipeId: string) => {
   }
 
   const url = new URL(
-    `https://api.spoonacular.com/recipes/${recipeId}/summary`
+    // `https://api.spoonacular.com/recipes/${recipeId}/summary`
+    `https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=false`
   );
   const params = {
     apiKey: apiKey,
@@ -42,6 +43,7 @@ export const getRecipeSummary = async (recipeId: string) => {
 
   const response = await fetch(url);
   const json = await response.json();
+  console.log(json);
 
   return json;
 };
