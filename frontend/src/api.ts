@@ -18,9 +18,6 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
 export const getRecipeSummary = async (recipeId: string) => {
   //  need to get from back end not directly from spooonacular
   const url = new URL(`http://localhost:5000/api/recipes/${recipeId}/summary`);
-  // const url = new URL(
-  //   `http://localhost:5000/api/recipes/${recipeId}/information?includeNutrition=false`
-  // );
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`HTTP error Status: ${response.status}`);
