@@ -33,8 +33,8 @@ const RecipeCard = ({
             <AiOutlineHeart size={25} />
           )}
         </span>
-        <h3>{recipe.title}</h3>
-        <h3>{recipe.id}</h3>
+        <h3 title={recipe.title}>{recipe.title}</h3>
+        <h2>{recipe.id}</h2>
       </div>
     </div>
   );
