@@ -21,7 +21,6 @@ app.get("/api/recipes/search", async (req, res) => {
   const results = await RecipeAPI.searchRecipes(searchTerm, page);
   return res.json(results);
 });
-
 // call  the get recipe summary from recipe-api.ts
 app.get("/api/recipes/:recipeId/summary", async (req, res) => {
   const recipeId = req.params.recipeId;
