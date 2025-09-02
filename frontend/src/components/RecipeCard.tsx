@@ -35,7 +35,6 @@ const RecipeCard = ({
         </span>
         <h3 title={recipe.title}>{recipe.title}</h3>
         <h2>{recipe.id}</h2>
-        <h3>{recipeSummary.sourceUrl} </h3>
       </div>
     </div>
   );
