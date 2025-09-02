@@ -39,9 +39,15 @@ const RecipeModal = ({ recipeId, onClose }: Props) => {
           {/* rendering HTML from api generally a no no  */}
 
           <h3>
-            <a href={recipeSummary.sourceUrl}>{recipeSummary.sourceName}</a>{" "}
+            <a
+              // rel="noopener noreferrer"
+              target="_blank"
+              href={recipeSummary.sourceUrl}
+            >
+              {recipeSummary.sourceName}
+            </a>{" "}
           </h3>
-          <h3> </h3>
+          <h3>{recipeSummary.sourceUrl} </h3>
           <p
             dangerouslySetInnerHTML={{
               __html: recipeSummary.summary,
