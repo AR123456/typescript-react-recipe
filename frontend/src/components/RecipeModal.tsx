@@ -38,6 +38,10 @@ const RecipeModal = ({ recipeId, onClose }: Props) => {
           </div>
           {/* rendering HTML from api generally a no no  */}
 
+          <h3>
+            <a href={recipeSummary.sourceUrl}>{recipeSummary.sourceName}</a>{" "}
+          </h3>
+          <h3> </h3>
           <p
             dangerouslySetInnerHTML={{
               __html: recipeSummary.summary,

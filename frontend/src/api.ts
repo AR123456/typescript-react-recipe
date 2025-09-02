@@ -25,6 +25,8 @@ export const getRecipeSummary = async (recipeId: string) => {
   if (!response.ok) {
     throw new Error(`HTTP error Status: ${response.status}`);
   }
+  // looking at what is being sent to front.
+
   // sending this to recipe modal
   return response.json();
 };
